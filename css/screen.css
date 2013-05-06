@@ -50,53 +50,63 @@ h3 { font-family: Roboto Slab; font-weight: 400; font-size: 2.8rem; margin: 0.5e
 strong { font-weight: 700; }
 
 /* line 47, sass/_presentation.scss */
-.line-through { position: relative; }
+i { font-style: italic; }
+
 /* line 50, sass/_presentation.scss */
+figure { text-align: left; display: block; border-left: 10px solid rgba(0, 0, 0, 0.2); padding: 0.2em 0.2em 0.2em 1em; margin-left: 1em; font-weight: 300; font-size: 0.9em; }
+/* line 59, sass/_presentation.scss */
+figure a { color: rgba(255, 255, 255, 0.8) !important; display: block; text-align: right; font-style: italic; margin: 1em 0 0; }
+/* line 66, sass/_presentation.scss */
+figure a:before, figure a:after { content: " - "; }
+
+/* line 71, sass/_presentation.scss */
+.line-through { position: relative; }
+/* line 74, sass/_presentation.scss */
 .line-through:after { position: absolute; top: 56%; left: 0; width: 100%; content: ' '; border-bottom: 4px solid white; }
 
-/* line 60, sass/_presentation.scss */
-p { font-weight: 300; text-align: center; }
+/* line 84, sass/_presentation.scss */
+p { font-weight: 300; text-align: center; margin-bottom: 1em; }
 
-/* line 64, sass/_presentation.scss */
+/* line 89, sass/_presentation.scss */
 ul { font-weight: 300; list-style-position: inside; padding: 1rem; }
 
-/* line 70, sass/_presentation.scss */
+/* line 95, sass/_presentation.scss */
 a { -webkit-transition: color 1s ease; -moz-transition: color 1s ease; -ms-transition: color 1s ease; -o-transition: color 1s ease; transition: color 1s ease; color: #a0a0a0; text-decoration: none; }
 
-/* line 80, sass/_presentation.scss */
+/* line 105, sass/_presentation.scss */
 article { -webkit-perspective: 600px; -moz-perspective: 600px; -ms-perspective: 600px; -o-perspective: 600px; perspective: 600px; position: absolute; top: 0; right: 0; left: 0; bottom: 0; font-weight: 100; color: white; counter-reset: subjectCounter; }
 
-/* line 96, sass/_presentation.scss */
+/* line 121, sass/_presentation.scss */
 section { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; background: #c0c0c0; border-radius: 30px; width: 80vw; height: 80vh; position: absolute; top: 50%; left: 50%; margin-left: -40vw; margin-top: -40vh; opacity: 0; font-size: 6vh; display: table; }
 
-/* line 116, sass/_presentation.scss */
+/* line 141, sass/_presentation.scss */
 .centered { padding: 4% 6%; display: table-cell; vertical-align: middle; text-align: center; }
 
-/* line 123, sass/_presentation.scss */
+/* line 148, sass/_presentation.scss */
 pre { display: block; white-space: pre-wrap; font-family: Consolas; tab-size: 4; background: rgba(255, 255, 255, 0.92); color: rgba(0, 0, 0, 0.86); padding: 1rem; border-radius: 11px; margin: 2rem 1rem; font-size: 4.6vh; }
 
-/* line 136, sass/_presentation.scss */
+/* line 161, sass/_presentation.scss */
 pre code[class*="language-"] { white-space: pre-wrap; display: block; }
 
-/* line 141, sass/_presentation.scss */
-footer { background: white; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; font-size: 0.8em; }
+/* line 166, sass/_presentation.scss */
+footer { background: white; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; font-size: 0.8em; display: none; }
 
-/* line 151, sass/_presentation.scss */
+/* line 177, sass/_presentation.scss */
 footer img { border: 0; border-radius: 4px; float: left; width: 30px; height: 30px; margin: 15px; }
 
-/* line 160, sass/_presentation.scss */
+/* line 186, sass/_presentation.scss */
 footer p { padding-top: 24px; }
 
-/* line 164, sass/_presentation.scss */
+/* line 190, sass/_presentation.scss */
 footer a { font-weight: bold; }
 
-/* line 169, sass/_presentation.scss */
+/* line 195, sass/_presentation.scss */
 body, section.bespoke-slide { -webkit-transition: -webkit-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -moz-transition: -moz-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -ms-transition: -ms-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -o-transition: -o-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; transition: transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; }
 
-/* line 176, sass/_presentation.scss */
+/* line 202, sass/_presentation.scss */
 section.bespoke-active { opacity: 1; z-index: 1; }
 
-/* line 183, sass/_presentation.scss */
+/* line 209, sass/_presentation.scss */
 .intro .by { font-size: 0.8em; font-weight: 300; margin: 1.1em 0 0.8em; }
-/* line 189, sass/_presentation.scss */
+/* line 215, sass/_presentation.scss */
 .intro .author { font-size: 1.3em; font-weight: 300; }

@@ -79,7 +79,7 @@
 				<section>
 					<div class="centered">	
 						<h3>Temor</h3>
-						<p>Muschos temen el uso de la coerción y la tildan como mala práctica, e incluso como peligrosa.</p>
+						<p>Algunos temen el uso de la coerción y la tildan como mala práctica, e incluso como peligrosa.</p>
 					</div>
 				</section>
 				
@@ -87,17 +87,160 @@
 					<div class="centered">	
 						<h3>Pero</h3>
 						<p>La coerción se encuentra <strong>naturalmente</strong> en JavaScript.</p>
+						<i>De hecho es natural en muchos lenguajes.</i>
 					</div>
 				</section>
 				
 				<section>
 					<div class="centered">	
-					<h3>Uso implícito</h3>
+						<h3>Muchas veces pasa <strong>implícitamente</strong></h3>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Cuando verificas si una variable existe</h3>
 						<pre><code class="language-javascript">if( variable ){}
-
-var otherVar = myObj[ otherVar ];
-
+// JavaScript lo coerce a booleano
+// es equivalente a:
+if( Boolean(variable) ){}
+// o...
+if( !!variable ){}</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Cuando accedes una propiedad sin string</h3>
+						<pre><code class="language-javascript">myObj[ 3 ]; 
+// JavaScript lo coerce a string
+myObj[ '3' ]
+// Yep, arreglos tambien aplican
+[ 1, 2, 3 ][ '2' ]  //  3
 </code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Cuando concatenas... (no tan implícito)</h3>
+						<pre><code class="language-javascript">var edad = 20;
+console.log( "Tu edad es: " + edad ); 
+// JavaScript coerce edad&lt;number&gt; a string
+console.log( "Tu edad es: " + "20" )</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Cuando usas isNaN</h3>
+						<figure><strong>15.1.2.4 isNaN (number)</strong> <br>
+	Returns true if the argument coerces to NaN, and otherwise returns false.
+							<figcaption><a href="http://es5.github.io/#x15.1.2.4" title="">Annotated ECMAScript 5</a></figcaption>
+						</figure>	
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>...isNaN</h3>
+						<pre><code class="language-javascript">isNaN( '3' )
+// +'3' -> 3
+// entonces
+> false
+
+isNaN( '3px' )
+// +'3px' -> NaN
+> true</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>...isNaN (2)</h3>
+						<pre><code class="language-javascript">isNaN( '' )
+// +'' -> 0
+> false
+
+isNaN( {} )
+// +{} -> NaN
+> true</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>...isNaN!! (3)</h3>
+						<pre><code class="language-javascript">isNaN( { valueOf: function(){ return 2 }} )
+//+{ valueOf: function(){ return 2 }} -> 2
+> false
+
+isNaN( { valueOf: function(){ return '' }} )
+// +{ valueOf: function(){ return 0 }} -> +'' -> 0
+> false</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Cuando usas Array.prototype...</h3>
+						<p>Diferentes funcionalidades de los arreglos como: <code class="language-javascript">.filter</code>, <code class="language-javascript">.every</code>, <code class="language-javascript">.some</code>,
+							esperan que la funcion pasada retorne un valor coercionable a booleano.</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>O explícito...</h3>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Cuando usas un contructor de tipo core como función, es decir, sin <strong>new</strong></h3>
+						<pre><code class="language-javascript">Boolean( 19 ) // true
+String( 19 ) // '19'
+Number( '19' ) // 19
+Number( true ) // 1</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>O incluso con <strong>new</strong> estás coercionando.</h3>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Coerción en fechas</h3>
+						<pre><code class="language-javascript">var date = new Date()
+date.getTime() // 1367795189000
+date.valueOf() // 1367795189000
++ date // 1367795189000
+date.toString() // "Sun May 05 2013 18:06:29 GMT-0500 (COT)"
+date + '' // "Sun May 05 2013 18:06:29 GMT-0500 (COT)"</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Coerción en strings</h3>
+						<pre><code class="language-javascript">var text = '123'
+parseInt( text ) // 123
+Number( text ) // 123
++ text // 123</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3>Coerción en strings (2)</h3>
+						<pre><code class="language-javascript">var text = '34.5%'
+Number( text ) // NaN
++ text // NaN
+parseInt( text ) // 34
+parseFloat( text ) // 34.5</code></pre>
 					</div>
 				</section>
 
@@ -106,6 +249,47 @@ var otherVar = myObj[ otherVar ];
 						<h2>operadores binarios</h2>
 					</div>
 				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Operadores binarios</h3>
+						<p>Los operadores binarios son comunmente usados para interacturar con valores booleanos o binarios, no obstante, son aplicables a otros tipos, pues todo se representa en bits.</p>
+					</div>
+				</section>
+
+				
+				<section>
+					<div class="centered">	
+						<h3>Evil!</h3>
+						<p>El uso de operadores binarios fuera de booleanos o valores binarios se presta para: <br>
+							<strong>a)</strong> Errores de cálculo <br>
+							<strong>b)</strong> Difícil lectura del código
+						</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Usos comúnes</h3>
+						<pre><code class="language-javascript">if( a && b) // en condicionales
+var c = c || a // asignaciones
+true == 4 // validaciones
+var c = a | b // operaciones binarias.. 1 | 2 = < 01 | 10 = 11 > = 3
+for(i=0; i&lt;arr.lemgth; i++, j++) // coma (también operador binario) en ciclos</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Otros usos no tan comunes</h3>
+						<pre><code class="language-javascript">if( a && b) // en condicionales
+var c = c || a // asignaciones
+true == 4 // validaciones
+var c = a | b // operaciones binarias.. 1 | 2 = < 01 | 10 = 11 > = 3
+for(i=0; i&lt;arr.lemgth; i++, j++) // coma (también operador binario) en ciclos</code></pre>
+					</div>
+				</section>
+				
 
 				<section class="pre">
 					<div class="centered">	
@@ -162,6 +346,7 @@ var otherVar = myObj[ otherVar ];
 		</footer>
 
 		<script src="components/bespoke.js/src/bespoke.js"></script>
+		<script src="components/bespoke-hash/src/bespoke-hash.js"></script>
 		<script src="components/prism/prism.js"></script>
 		<script src="js/init.js"></script>
 	</body>

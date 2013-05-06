@@ -1,5 +1,5 @@
 (function(argument) {
-	var deck = bespoke.from('article');
+	var deck = bespoke.from('article', { hash: true });
 	initKeys();
 
 	function initKeys() {

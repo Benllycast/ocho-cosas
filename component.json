@@ -5,7 +5,8 @@
     "bespoke.js": "~0.1.1",
     "prism": "latest",
     "normalize-css": "~2.1.1",
-    "normalize.scss": "~2.1.0"
+    "normalize.scss": "~2.1.0",
+    "bespoke-hash": "~0.1.1"
   },
   "ignore": [
     "**/.*",
