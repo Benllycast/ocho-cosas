@@ -249,44 +249,84 @@ parseFloat( text ) // 34.5</code></pre>
 						<h2>operadores binarios</h2>
 					</div>
 				</section>
-				
-				<section>
-					<div class="centered">	
-						<h3>Operadores binarios</h3>
-						<p>Los operadores binarios son comunmente usados para interacturar con valores booleanos o binarios, no obstante, son aplicables a otros tipos, pues todo se representa en bits.</p>
-					</div>
-				</section>
 
 				
 				<section>
 					<div class="centered">	
 						<h3>Evil!</h3>
-						<p>El uso de operadores binarios fuera de booleanos o valores binarios se presta para: <br>
-							<strong>a)</strong> Errores de cálculo <br>
-							<strong>b)</strong> Difícil lectura del código
+						<p>El uso de operadores binarios fuera de operaciones booleanas o binarias se presta para:
 						</p>
+						<ol>
+							<li>Errores de cálculo</li>
+							<li>Difícil lectura del código</li>
+						</ol>
 					</div>
 				</section>
 				
 				<section>
 					<div class="centered">	
-						<h3>Usos comúnes</h3>
-						<pre><code class="language-javascript">if( a && b) // en condicionales
-var c = c || a // asignaciones
-true == 4 // validaciones
-var c = a | b // operaciones binarias.. 1 | 2 = < 01 | 10 = 11 > = 3
-for(i=0; i&lt;arr.lemgth; i++, j++) // coma (también operador binario) en ciclos</code></pre>
+						<h3>String.indexOf ( less Evil )</h3>
+						<pre><code class="language-javascript">~str.indexOf(',')
+~-1 // 0 -> false
+~0 // 1
+~1 // 2
+~2 // 3
+~n // n+1
+~21474836479 // 0 -> false -> fail!, común?
+</code></pre>
 					</div>
 				</section>
 				
 				<section>
 					<div class="centered">	
-						<h3>Otros usos no tan comunes</h3>
-						<pre><code class="language-javascript">if( a && b) // en condicionales
-var c = c || a // asignaciones
-true == 4 // validaciones
-var c = a | b // operaciones binarias.. 1 | 2 = < 01 | 10 = 11 > = 3
-for(i=0; i&lt;arr.lemgth; i++, j++) // coma (también operador binario) en ciclos</code></pre>
+						<h3>Mejores soluciones..</h3>
+						<pre><code class="language-javascript">str.indexOf(',') + 1
+str.indexOf(',') > -1 // más legible
+str.indexOf(',') >= 0 // más legible
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Redondeo o Floor ( so Evil )</h3>
+						<pre><code class="language-javascript">// NOT
+~~10.2 // 10
+// SHIFT
+10.2 >>> 0 // 10
+// SHIFT (Sign-propagating)
+-10.2 >> 0 // -10
+// XOR
+10.2 ^ 0 // 10
+// OR
+10.2 | 0 // 10</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ERROR!</h3>
+						<pre><code class="language-javascript">// NOT
+~~2147483647 // -2147483648
+// SHIFT
+8589934591 >>> 0 // 4294967295
+-10.2 >>> 0 // 4294967286
+// SHIFT (Sign-propagating)
+2147483648 >> 0 // -2147483648
+// XOR
+2147483648 ^ 0 // -2147483648
+// OR
+2147483648 | 0 // -2147483648</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Causa</h3>
+						<p>Las operaciones binarias no tienen encuenta signo y se encuentran
+							limitadas a 32 bits.</p>
+						<pre><code class="language-javascript">var n = 2147483648
+// 01111111111111111111111111111111</code></pre>
 					</div>
 				</section>
 				
