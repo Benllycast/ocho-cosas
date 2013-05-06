@@ -1,0 +1,11 @@
+- funciones ternarias
+- coerción
+- operaciones binarias
+- funciones aritméticas
+- hoisting
+- scope
+- bind
+- call & apply
+- prototipo
+- unicode
+- ; opcional
