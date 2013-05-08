@@ -1,4 +1,5 @@
 @import url(../components/prism/prism.css);
+@import url(../components/prism/plugins/line-highlight/prism-line-highlight.css);
 /* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 17, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
@@ -30,90 +31,102 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 * { box-sizing: border-box; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; margin: 0; padding: 0; }
 
 /* line 9, sass/_presentation.scss */
-body { overflow-x: hidden; font-family: Arial, sans-serif; font-size: 3.5vh; color: #606060; }
+body { overflow-x: hidden; font-family: Arial, sans-serif; font-size: 3.5vh; color: #606060; counter-reset: buenaPractica; }
 
-/* line 16, sass/_presentation.scss */
+/* line 17, sass/_presentation.scss */
 h1, h2, h3, h4 { text-align: center; }
 
-/* line 20, sass/_presentation.scss */
-h1 { font-size: 4.2rem; font-family: Roboto Slab; font-weight: 400; }
+/* line 21, sass/_presentation.scss */
+h1 { font-size: 14.7vh; font-family: Roboto Slab; font-weight: 400; }
 
-/* line 25, sass/_presentation.scss */
-h2 { font-size: 4rem; font-family: Roboto Slab; font-weight: normal; counter-increment: subjectCounter; }
-/* line 31, sass/_presentation.scss */
+/* line 26, sass/_presentation.scss */
+h2 { font-size: 14vh; font-family: Roboto Slab; font-weight: normal; counter-increment: subjectCounter; }
+/* line 32, sass/_presentation.scss */
 h2:before { content: counter(subjectCounter); font-size: 8rem; display: block; }
 
-/* line 38, sass/_presentation.scss */
-h3 { font-family: Roboto Slab; font-weight: 400; font-size: 2.8rem; margin: 0.5em 0; }
+/* line 39, sass/_presentation.scss */
+h3 { font-family: Roboto Slab; font-weight: 400; font-size: 9.8vh; margin: 0.5em 0; }
 
-/* line 44, sass/_presentation.scss */
+/* line 45, sass/_presentation.scss */
+.bp:after { counter-increment: buenaPractica; content: "# " counter(buenaPractica); display: inline-block; margin-left: 0.4em; }
+
+/* line 51, sass/_presentation.scss */
 strong { font-weight: 700; }
 
-/* line 47, sass/_presentation.scss */
+/* line 54, sass/_presentation.scss */
 i { font-style: italic; }
 
-/* line 50, sass/_presentation.scss */
+/* line 57, sass/_presentation.scss */
 figure { text-align: left; display: block; border-left: 10px solid rgba(0, 0, 0, 0.2); padding: 0.2em 0.2em 0.2em 1em; margin-left: 1em; font-weight: 300; font-size: 0.9em; }
-/* line 59, sass/_presentation.scss */
-figure a { color: rgba(255, 255, 255, 0.8) !important; display: block; text-align: right; font-style: italic; margin: 1em 0 0; }
 /* line 66, sass/_presentation.scss */
+figure a { color: rgba(255, 255, 255, 0.8) !important; display: block; text-align: right; font-style: italic; margin: 1em 0 0; }
+/* line 73, sass/_presentation.scss */
 figure a:before, figure a:after { content: " - "; }
 
-/* line 71, sass/_presentation.scss */
+/* line 78, sass/_presentation.scss */
 .line-through { position: relative; }
-/* line 74, sass/_presentation.scss */
+/* line 81, sass/_presentation.scss */
 .line-through:after { position: absolute; top: 56%; left: 0; width: 100%; content: ' '; border-bottom: 4px solid white; }
 
-/* line 84, sass/_presentation.scss */
-p { font-weight: 300; text-align: center; margin-bottom: 1em; }
+/* line 91, sass/_presentation.scss */
+p { font-weight: 300; text-align: center; margin-bottom: 1em; font-size: 5vh; }
 
-/* line 89, sass/_presentation.scss */
+/* line 97, sass/_presentation.scss */
 ul, ol { display: inline-block; }
-/* line 92, sass/_presentation.scss */
+/* line 100, sass/_presentation.scss */
 ul li, ol li { text-align: left; }
 
-/* line 96, sass/_presentation.scss */
+/* line 104, sass/_presentation.scss */
 ol { font-weight: 300; list-style-position: inside; margin: 1rem 0; width: 60%; }
-/* line 102, sass/_presentation.scss */
+/* line 110, sass/_presentation.scss */
 ol li { list-style-type: lower-alpha; }
 
-/* line 107, sass/_presentation.scss */
-a { -webkit-transition: color 1s ease; -moz-transition: color 1s ease; -ms-transition: color 1s ease; -o-transition: color 1s ease; transition: color 1s ease; color: #a0a0a0; text-decoration: none; }
+/* line 115, sass/_presentation.scss */
+.coverflow a { color: rgba(255, 255, 255, 0.9); font-style: italic; margin: 1em 0 0; }
 
-/* line 117, sass/_presentation.scss */
+/* line 121, sass/_presentation.scss */
+.ref { font-size: 4vh; }
+
+/* line 125, sass/_presentation.scss */
 article { -webkit-perspective: 600px; -moz-perspective: 600px; -ms-perspective: 600px; -o-perspective: 600px; perspective: 600px; position: absolute; top: 0; right: 0; left: 0; bottom: 0; font-weight: 100; color: white; counter-reset: subjectCounter; }
 
-/* line 133, sass/_presentation.scss */
+/* line 141, sass/_presentation.scss */
 section { -webkit-transform: none; -moz-transform: none; -ms-transform: none; -o-transform: none; transform: none; background: #c0c0c0; border-radius: 30px; width: 80vw; height: 80vh; position: absolute; top: 50%; left: 50%; margin-left: -40vw; margin-top: -40vh; opacity: 0; font-size: 6vh; display: table; }
 
-/* line 153, sass/_presentation.scss */
+/* line 161, sass/_presentation.scss */
 .centered { padding: 4% 6%; display: table-cell; vertical-align: middle; text-align: center; }
 
-/* line 160, sass/_presentation.scss */
+/* line 168, sass/_presentation.scss */
 pre { display: block; white-space: pre-wrap; font-family: Consolas; tab-size: 4; background: rgba(255, 255, 255, 0.92); color: rgba(0, 0, 0, 0.86); padding: 1rem; border-radius: 11px; margin: 2rem 1rem; font-size: 4.6vh; }
 
-/* line 173, sass/_presentation.scss */
+/* line 181, sass/_presentation.scss */
 pre code[class*="language-"] { white-space: pre-wrap; display: block; }
 
-/* line 178, sass/_presentation.scss */
+/* line 186, sass/_presentation.scss */
 footer { background: white; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; font-size: 0.8em; display: none; }
 
-/* line 189, sass/_presentation.scss */
+/* line 197, sass/_presentation.scss */
 footer img { border: 0; border-radius: 4px; float: left; width: 30px; height: 30px; margin: 15px; }
 
-/* line 198, sass/_presentation.scss */
+/* line 206, sass/_presentation.scss */
 footer p { padding-top: 24px; }
 
-/* line 202, sass/_presentation.scss */
+/* line 210, sass/_presentation.scss */
 footer a { font-weight: bold; }
 
-/* line 207, sass/_presentation.scss */
+/* line 215, sass/_presentation.scss */
 body, section.bespoke-slide { -webkit-transition: -webkit-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -moz-transition: -moz-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -ms-transition: -ms-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -o-transition: -o-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; transition: transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; }
 
-/* line 214, sass/_presentation.scss */
+/* line 222, sass/_presentation.scss */
 section.bespoke-active { opacity: 1; z-index: 1; }
 
-/* line 221, sass/_presentation.scss */
+/* line 226, sass/_presentation.scss */
+section.bespoke-inactive { pointer-events: none; }
+
+/* line 231, sass/_presentation.scss */
 .intro .by { font-size: 0.8em; font-weight: 300; margin: 1.1em 0 0.8em; }
-/* line 227, sass/_presentation.scss */
+/* line 237, sass/_presentation.scss */
 .intro .author { font-size: 1.3em; font-weight: 300; }
+
+/* line 243, sass/_presentation.scss */
+.line-highlight:before, .line-highlight[data-end]:after { top: 0; }

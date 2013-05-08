@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf8">
 		<meta name="viewport" content="width=device-width" />
-		<title>Bespoke.js</title>
+		<title>X Cosas que debes saber de JavaScript</title>
 		<link rel="stylesheet" type="text/css" href="components/bespoke.js/demo/themes.css" />
 		<link rel="stylesheet" type="text/css" href="css/screen.css" />
 		<link href="http://fonts.googleapis.com/css?family=Raleway+Dots|Roboto+Slab:400,300,700" rel="stylesheet" type="text/css">
@@ -20,7 +20,7 @@
 				</section>
 
 				<!--
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>funciones ternarias</h2>
 					</div>
@@ -64,7 +64,7 @@
 				</section>
 				-->
 
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>coerción</h2>
 					</div>
@@ -172,18 +172,10 @@ isNaN( { valueOf: function(){ return '' }} )
 > false</code></pre>
 					</div>
 				</section>
-				
-				<section>
-					<div class="centered">	
-					<h3>Cuando usas Array.prototype...</h3>
-						<p>Diferentes funcionalidades de los arreglos como: <code class="language-javascript">.filter</code>, <code class="language-javascript">.every</code>, <code class="language-javascript">.some</code>,
-							esperan que la funcion pasada retorne un valor coercionable a booleano.</p>
-					</div>
-				</section>
 
 				<section>
 					<div class="centered">	
-						<h3>O explícito...</h3>
+						<h3>o <strong>explícito</strong>...</h3>
 					</div>
 				</section>
 				
@@ -217,7 +209,7 @@ Number( true ) // 1</code></pre>
 				
 				<section>
 					<div class="centered">	
-					<h3>Coerción en fechas</h3>
+					<h3>ej: coerción de fechas</h3>
 						<pre><code class="language-javascript">var date = new Date()
 date.getTime() // 1367795189000
 date.valueOf() // 1367795189000
@@ -229,7 +221,7 @@ date + '' // "Sun May 05 2013 18:06:29 GMT-0500 (COT)"</code></pre>
 				
 				<section>
 					<div class="centered">	
-					<h3>Coerción en strings</h3>
+					<h3>ej: coerción de strings</h3>
 						<pre><code class="language-javascript">var text = '123'
 parseInt( text ) // 123
 Number( text ) // 123
@@ -239,16 +231,22 @@ Number( text ) // 123
 				
 				<section>
 					<div class="centered">	
-					<h3>Coerción en strings (2)</h3>
+					<h3>Coerción de strings (2)</h3>
 						<pre><code class="language-javascript">var text = '34.5%'
 Number( text ) // NaN
 + text // NaN
-parseInt( text ) // 34
-parseFloat( text ) // 34.5</code></pre>
+parseInt( text ) // 34 &lt;- yeah!
+parseFloat( text ) // 34.5 &lt;- yeeeah!</code></pre>
 					</div>
 				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3 class="bp">buena práctica</h3>
+					<p>Usar <code class="language-javascript">parseInt</code> y <code class="language-javascript">parseFloat</code> para la conversión numérica.</p>
+				</section>
 
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>operadores bit a bit</h2>
 					</div>
@@ -308,7 +306,9 @@ str.indexOf(',') >= 0 // más legible
 						<h3>Pero</h3>
 						<p>Las operaciones binarias no tienen encuenta signo y se encuentran
 							limitadas a 8 bytes (32 bits).</p>
-						<pre><code class="language-javascript">var n = 2147483648
+						<pre><code class="language-javascript">var n = 2147483647
+console.log( n.toString( 2 ) )
+> 1111111111111111111111111111111
 // 01111111111111111111111111111111</code></pre>
 					</div>
 				</section>
@@ -322,55 +322,339 @@ str.indexOf(',') >= 0 // más legible
 8589934591 >>> 0 // 4294967295
 -10.2 >>> 0 // 4294967286
 // SHIFT (Sign-propagating)
-2147483648 >> 0 // -2147483648
-// XOR
-2147483648 ^ 0 // -2147483648
-// OR
-2147483648 | 0 // -2147483648</code></pre>
+2147483648 >> 0 // -2147483648</code></pre>
 					</div>
 				</section>
 				
+				<section>
+					<div class="centered">	
+					<h3 class="bp">buena práctica</h3>
+					<p>Usar <code class="language-javascript">Math.round</code>, <code class="language-javascript">Math.floor</code> y <code class="language-javascript">Math.ceil</code> para redondear los números.</p>
+				</section>
+				
 
-				<section class="pre">
+				<!--
+				<section>
 					<div class="centered">	
 						<h2>Math, parseInt y globales</h2>
 					</div>
 				</section>
+				-->
 
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>hoisting</h2>
 					</div>
 				</section>
 
-				<section class="pre">
+				<section>
+					<div class="centered">
+						<figure><strong>hoist</strong> <br>
+	To raise or haul up with or as if with the help of a mechanical apparatus.
+							<figcaption><a href="http://www.thefreedictionary.com/hoisting" title="">The Free Dictionary</a></figcaption>
+						</figure>	
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>Def.</h3>
+						<p>Javascript siempre lleva la definición de variables ( cualquiera ) al comienzo de la función ( realmente scope ).</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo</h3>
+						<pre><code class="language-javascript">var i = 1,
+	j = 2
+function hoisting(){
+	console.log( i )
+	console.log( j )
+	var i = 3
+	console.log( i )
+}
+hoisting()</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>lo que realmente imprime</h3>
+						<pre><code class="language-javascript">var i = 1,
+	j = 2
+function hoisting(){
+	console.log( i ) // undefined
+	console.log( j ) // 2
+	var i = 3
+	console.log( i ) // 3
+}
+hoisting()</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>lo que pasa</h3>
+						<pre data-line="4"><code class="language-javascript">var i = 1,
+	j = 2
+function hoisting(){
+	var i
+	console.log( i )
+	console.log( j )
+	i = 3
+	console.log( i )
+}
+hoisting()</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo con funciones</h3>
+						<pre><code class="language-javascript">console.log( func1() )
+console.log( func2() )
+function func1(){ return 1 }
+var func2 = function(){ return 2 }
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo con funciones</h3>
+						<pre><code class="language-javascript">console.log( func1() )
+console.log( func2() ) 
+function func1(){return 1} // declaración
+var func2 = function(){return 2} // expresión
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo con funciones</h3>
+						<pre><code class="language-javascript">console.log( func1() ) // 1
+console.log( func2() ) // TypeError
+function func1(){ return 1 }
+var func2 = function(){ return 2 }
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>lo que pasa</h3>
+						<pre><code class="language-javascript">var func2;
+function func1(){ return 1 }
+console.log( func1() )
+console.log( func2() )
+func2 = function(){ return 2 }
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo feo</h3>
+						<pre><code class="language-javascript">function foo(){
+    function bar() {
+        return 3;
+    }
+    return bar();
+    function bar() {
+        return 8;
+    }
+}
+alert(foo());</code></pre>
+					<a href="http://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/" class="ref">Function Declarations vs. Function Expressions by Angus Croll</a>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3 class="bp">buena práctica</h3>
+						<p>Definir todas las variables lo antes posible en la función.</p>
+					</div>
+				</section>
+
+				<section>
 					<div class="centered">	
 						<h2>scope</h2>
 					</div>
 				</section>
 
-				<section class="pre">
+				<section>
+					<div class="centered">	
+						<h3>Def.</h3>
+						<p>Se refiere al entorno de definición de las variables, usalmente una función tiene acceso a los scopes superiores, pero no a inferiores.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo scope</h3>
+						<pre><code class="language-javascript">var a = 3, 
+	b = 4;
+function func(){ 
+	var a = 4;
+	return a + b;
+}
+func(); // 8;</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo scope</h3>
+						<pre><code class="language-javascript">var a = 3, 
+	b = 4;
+function func(){ 
+	var a = 4;
+	function funcInterna(){
+		var b = 0;
+		a = 0;
+	}
+	funcInterna();
+	return a + b;
+}
+func(); // 4</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3 class="bp">buena práctica</h3>
+					<p>Siempre definir las variables de la función usando <code class="language-javascript">var</code>.</p>
+				</section>
+				
+				<section>
+					<div class="centered">	
+					<h3 class="bp">buena práctica</h3>
+					<p>Usar la expresión <code class="language-javascript">"use strict";</code> para evitar el cambio de variables externas al scope.</p>
+				</section>
+
+				<section>
 					<div class="centered">	
 						<h2>bind, call, apply</h2>
 					</div>
 				</section>
 
-				<section class="pre">
+				<section>
+					<div class="centered">	
+						<h3>bind, call, apply</h3>
+						<p>Todas son funciones de las funciones</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>bind( this )</h3>
+						<p>Retorna una nueva función done el <code>this</code> es suplantado.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo bind</h3>
+						<pre><code class="language-javascript">var obj = {
+		a: 3,
+		f: function(){
+			return this.a;
+		}
+	},
+	a = 5;
+obj.f() // 3
+obj.f.bind( this )() // 5
+obj.f() // 3</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>call( this, [param1, [ param2, ...]])</h3>
+						<p>Ejecuta una función definiendo el <code>this</code> para la ejecución y recibe los parámetros.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo call</h3>
+						<pre><code class="language-javascript">var obj = {
+		r: 3,
+		f: function( p ){
+			return p * this.r;
+		}
+	},
+	obj2 = {
+		r: 5
+	};
+obj.f( 2 ) // 6
+obj.f.call( obj2, 2 ) // 10</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>apply( this, params[])</h3>
+						<p>Ejecuta una función definiendo el <code>this</code> de una función y sus parámetros como un arreglo.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo apply</h3>
+						<pre><code class="language-javascript">var obj = {
+		r: 3,
+		f: function( p, q ){
+			return p * this.r + q;
+		}
+	},
+	obj2 = {
+		r: 5
+	};
+obj.f( 2, 2 ) // 8
+obj.f.call( obj2, [2, 2] ) // 12</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>pero apply es más cool que eso!</h3>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>ejemplo <strong>cool</strong> de apply</h3>
+						<pre><code class="language-javascript">var arr = [23, 45, 17, 9]
+Math.max.apply(null, arr) // 45
+Math.min.apply(null, arr) // 9
+console.log( arr ) // [23, 45, 17, 9]
+console.log.apply(console, arr) // 23 45 17 9</code></pre>
+					</div>
+				</section>
+
+				<section>
 					<div class="centered">	
 						<h2>prototype</h2>
 					</div>
 				</section>
 
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>JavaScript es <span class="line-through">unicode</span> UCS-2</h2>
-						<pre>hämmästyttävä  невероватно  дзіўны  úžasný  удивительный  놀랄만한  น่าอัศจรรย์  אַמייזינג tuyệt vời  ఆశ్చర్యం  அற்புதமான  驚人  شگفت  مدهش انگیز  ເຮັດໃຫ້ປະລາດ  საოცარი  զարմանալի  আশ্চর্যজনক</pre>
-						<p>finlandés, serbio, bielorruso, eslovaco, cirílico, koreano, tailandés, yídish, vietnamita, telugu, tamil, chino, persa, árabe, lao, georgiano, armenio, bengalí</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<pre class="show-next-on-hover"><span title="finlandés">hämmästyttävä</span>  <span title="serbio">невероватно</span>  <span title="bielorruso">дзіўны</span>  <span title="eslovaco">úžasný</span>  <span title="cirílico">удивительный</span>  <span title="koreano">놀랄만한</span>  <span title="tailandés">น่าอัศจรรย์</span>  <span title="yídish">אַמייזינג</span> <span title="vietnamita">tuyệt vời</span>  <span title="telugu">ఆశ్చర్యం</span>  <span title="tamil">அற்புதமான</span>  <span title="chino">驚人</span>  <span title="persa">شگفت</span>  <span title="árabe">مدهش انگیز</span>  <span title="lao">ເຮັດໃຫ້ປະລາດ</span>  <span title="georgiano">საოცარი</span>  <span title="armenio">զարմանալի</span>  <span title="bengalí">আশ্চর্যজনক</span></pre>
 						http://mothereff.in/js-variables
 					</div>
 				</section>
 
-				<section class="pre">
+				<section>
 					<div class="centered">	
 						<h2>10. el punto y coma es opcional</h2>
 					</div>
@@ -388,6 +672,7 @@ str.indexOf(',') >= 0 // más legible
 		<script src="components/bespoke.js/src/bespoke.js"></script>
 		<script src="components/bespoke-hash/src/bespoke-hash.js"></script>
 		<script src="components/prism/prism.js"></script>
+		<script src="components/prism/plugins/line-highlight/prism-line-highlight.js"></script>
 		<script src="js/init.js"></script>
 	</body>
 </html>

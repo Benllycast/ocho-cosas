@@ -11,6 +11,7 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: 3.5vh;
 	color: #606060;
+	counter-reset: buenaPractica;
 }
 
 h1, h2, h3, h4{
@@ -18,12 +19,12 @@ h1, h2, h3, h4{
 }
 
 h1{
-	font-size: 4.2rem;
+	font-size: 14.7vh;
 	font-family: Roboto Slab;
 	font-weight: 400;
 }
 h2{
-	font-size: 4rem;
+	font-size: 14vh;
 	font-family: Roboto Slab;
 	font-weight: normal;
 	counter-increment: subjectCounter;
@@ -38,8 +39,14 @@ h2{
 h3{
 	font-family: Roboto Slab;
 	font-weight: 400;
-	font-size: 2.8rem;
+	font-size: 9.8vh;
 	margin: 0.5em 0;
+}
+.bp:after{
+	counter-increment: buenaPractica;
+	content: "# " counter(buenaPractica);
+	display: inline-block;
+	margin-left: 0.4em;
 }
 strong{
 	font-weight: 700;
@@ -85,6 +92,7 @@ p{
 	font-weight: 300;
 	text-align: center;
 	margin-bottom: 1em;
+	font-size: 5vh;
 }
 ul, ol{
 	display: inline-block;
@@ -104,14 +112,14 @@ ol{
 	}
 }
 
-a {
-	-webkit-transition: color 1s ease;
-	-moz-transition: color 1s ease;
-	-ms-transition: color 1s ease;
-	-o-transition: color 1s ease;
-	transition: color 1s ease;
-	color: #a0a0a0;
-	text-decoration: none;
+.coverflow a{
+	color: rgba(255,255,255,0.9);
+	font-style: italic;
+	margin: 1em 0 0;
+}
+
+.ref{
+	font-size: 4vh;
 }
 
 article {
@@ -215,7 +223,9 @@ section.bespoke-active {
 	opacity: 1;
 	z-index: 1;
 }
-
+section.bespoke-inactive {
+	pointer-events: none
+}
 
 .intro{
 	.by{
@@ -230,3 +240,6 @@ section.bespoke-active {
 	}
 }
 
+.line-highlight:before, .line-highlight[data-end]:after{
+	top: 0
+}
