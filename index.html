@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf8">
 		<meta name="viewport" content="width=device-width" />
-		<title>X Cosas que debes saber de JavaScript</title>
+		<title>8 Cosas que debes saber de JavaScript</title> 
 		<link rel="stylesheet" type="text/css" href="components/bespoke.js/demo/themes.css" />
 		<link rel="stylesheet" type="text/css" href="css/screen.css" />
 		<link href="http://fonts.googleapis.com/css?family=Raleway+Dots|Roboto+Slab:400,300,700" rel="stylesheet" type="text/css">
@@ -13,14 +13,14 @@
 			<article>
 				<section class="intro">
 					<div class="centered">					
-						<h1>Diez cosas que debes saber de JavaScript</h1>
+						<h1>Ocho cosas que debes saber de JavaScript</h1>
 						<p class="by">por</p>
 						<p class="author">David Avellaneda</p>
 					</div>
 				</section>
 
 				<!--
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>funciones ternarias</h2>
 					</div>
@@ -64,7 +64,7 @@
 				</section>
 				-->
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>coerción</h2>
 					</div>
@@ -214,8 +214,8 @@ Number( true ) // 1</code></pre>
 date.getTime() // 1367795189000
 date.valueOf() // 1367795189000
 + date // 1367795189000
-date.toString() // "Sun May 05 2013 18:06:29 GMT-0500 (COT)"
-date + '' // "Sun May 05 2013 18:06:29 GMT-0500 (COT)"</code></pre>
+date.toString() // "Sun May 05 2013 ..."
+date + '' // "Sun May 05 2013 ..."</code></pre>
 					</div>
 				</section>
 				
@@ -246,7 +246,7 @@ parseFloat( text ) // 34.5 &lt;- yeeeah!</code></pre>
 					<p>Usar <code class="language-javascript">parseInt</code> y <code class="language-javascript">parseFloat</code> para la conversión numérica.</p>
 				</section>
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>operadores bit a bit</h2>
 					</div>
@@ -255,7 +255,7 @@ parseFloat( text ) // 34.5 &lt;- yeeeah!</code></pre>
 				
 				<section>
 					<div class="centered">	
-						<h3>WARN!</h3>
+						<h3>WARNING!</h3>
 						<p>El uso de operadores bit a bit fuera de operaciones booleanas o binarias se presta para errores.
 						</p>
 					</div>
@@ -305,7 +305,7 @@ str.indexOf(',') >= 0 // más legible
 					<div class="centered">	
 						<h3>Pero</h3>
 						<p>Las operaciones binarias no tienen encuenta signo y se encuentran
-							limitadas a 8 bytes (32 bits).</p>
+							limitadas a 4 bytes (32 bits) y los números pueden ir hasta 8 bytes o más.</p>
 						<pre><code class="language-javascript">var n = 2147483647
 console.log( n.toString( 2 ) )
 > 1111111111111111111111111111111
@@ -334,14 +334,14 @@ console.log( n.toString( 2 ) )
 				
 
 				<!--
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>Math, parseInt y globales</h2>
 					</div>
 				</section>
 				-->
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>hoisting</h2>
 					</div>
@@ -478,7 +478,7 @@ alert(foo());</code></pre>
 					</div>
 				</section>
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>scope</h2>
 					</div>
@@ -534,7 +534,7 @@ func(); // 4</code></pre>
 					<p>Usar la expresión <code class="language-javascript">"use strict";</code> para evitar el cambio de variables externas al scope.</p>
 				</section>
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>bind, call, apply</h2>
 					</div>
@@ -550,7 +550,7 @@ func(); // 4</code></pre>
 				<section>
 					<div class="centered">	
 						<h3>bind( this )</h3>
-						<p>Retorna una nueva función done el <code>this</code> es suplantado.</p>
+						<p>Retorna una nueva función done el <code class="language-javascript">this</code> es suplantado.</p>
 					</div>
 				</section>
 				
@@ -573,7 +573,7 @@ obj.f() // 3</code></pre>
 				<section>
 					<div class="centered">	
 						<h3>call( this, [param1, [ param2, ...]])</h3>
-						<p>Ejecuta una función definiendo el <code>this</code> para la ejecución y recibe los parámetros.</p>
+						<p>Ejecuta una función definiendo el <code class="language-javascript" class="language-javascript">this</code> para la ejecución y recibe los parámetros.</p>
 					</div>
 				</section>
 				
@@ -597,7 +597,7 @@ obj.f.call( obj2, 2 ) // 10</code></pre>
 				<section>
 					<div class="centered">	
 						<h3>apply( this, params[])</h3>
-						<p>Ejecuta una función definiendo el <code>this</code> de una función y sus parámetros como un arreglo.</p>
+						<p>Ejecuta una función definiendo el <code class="language-javascript">this</code> de una función y sus parámetros como un arreglo.</p>
 					</div>
 				</section>
 				
@@ -630,12 +630,11 @@ obj.f.call( obj2, [2, 2] ) // 12</code></pre>
 						<pre><code class="language-javascript">var arr = [23, 45, 17, 9]
 Math.max.apply(null, arr) // 45
 Math.min.apply(null, arr) // 9
-console.log( arr ) // [23, 45, 17, 9]
-console.log.apply(console, arr) // 23 45 17 9</code></pre>
+</code></pre>
 					</div>
 				</section>
 
-				<section>
+				<section class="subject">
 					<div class="centered">	
 						<h2>prototype</h2>
 					</div>
@@ -643,7 +642,75 @@ console.log.apply(console, arr) // 23 45 17 9</code></pre>
 
 				<section>
 					<div class="centered">	
-						<h2>JavaScript es <span class="line-through">unicode</span> UCS-2</h2>
+						<h3>Def.</h3>
+						<p>Es una cadena de herencia de funcionalidades y propiedades.</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>Ejemplo</h3>
+						<p>En el prototipo del <code class="language-javascript">Array</code> existen diferentes funcionalidades dentro de un mismo tipo.</p>
+						<img src="img/array_proto.png" alt="" style="height: 40vh;width: auto;">
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>ventaja</h3>
+						<p>Se puede extender en tiempo de ejecución a todas las variables de un mismo tipo.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>extensión</h3>
+						<pre><code class="language-javascript">var arr = []
+console.log( arr.ola )
+> undefined
+Array.prototype.ola = "k ase"
+console.log( arr.ola )
+> "k ase"
+</code></pre>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>extensión <strong>cool</strong></h3>
+						<pre><code class="language-javascript">var bbc = "BogotáBeerCompany"
+String.prototype.rocks = function(){
+	return "&#10026; " + this + " Rocks! &#10026;"
+}
+bbc.rocks()
+> &#10026; BogotáBeerCompany Rocks! &#10026;
+</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>Warning... ?</h3>
+						<p>Colisión de definiciones, es como jugar a modificar un name-space.</p>
+					</div>
+				</section>
+				
+				<section>
+					<div class="centered">	
+						<h3>extensión</h3>
+						<pre><code class="language-javascript">Object.defineProperty( String.prototype, 'slugify', {
+	value: function slugify() { ... },
+	configurable: true,
+	enumerable: false,
+	writeable: true
+});
+</code></pre>
+					</div>
+				</section>
+
+				<section class="subject">
+					<div class="centered">	
+						<h2>JavaScript es UCS-2</h2>
 					</div>
 				</section>
 
@@ -656,7 +723,123 @@ console.log.apply(console, arr) // 23 45 17 9</code></pre>
 
 				<section>
 					<div class="centered">	
-						<h2>10. el punto y coma es opcional</h2>
+						<h3>Muchos caracteres</h3>
+						<pre class="language-javascript"><code>var π = Math.PI,
+	ಠ_ಠ = eval,
+	λ = function() {}</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>Pero en resumen... Espagnol</h3>
+						<pre class="language-javascript"><code>var año = 2013,
+	español = true,
+	cuánto = 12000
+function cálculoExtraño(){
+	return año * cuánto
+}
+
+if( español ){
+	cálculoExtraño()
+}
+> 24156000 //Oh si!</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h2>el punto y coma es <strong>opcional</strong></h2>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>Sip, puede provocar errores...</h3>
+						<p>Pero si los conoces los puedes evitar, incluso pasan con el uso de punto y coma...</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>return statement</h3>
+						<p>Si return recibe un cambio de línea, retorna undefined.</p>
+						<pre class="language-javascript"><code>function(){
+	return 
+	{
+		edad: 20
+	};
+}
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>return statement solved</h3>
+						<pre class="language-javascript"><code>function(){
+	return {
+		edad: 20
+	}
+}
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>paréntesis, el "enemigo"</h3>
+						<pre class="language-javascript"><code>var a = 1, b = 2, c = 3
+(a * b)
+> Number is not a function
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>paréntesis, solución</h3>
+						<pre class="language-javascript"><code>var a = 1, b = 2, c = 3(a * b)
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>pero pasaba antes del boom</h3>
+						<pre class="language-javascript"><code>(function(){ return 2 }())
+(function(){ return 3 }())
+//Number is not a function
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>pero pasaba antes del boom</h3>
+						<pre class="language-javascript"><code>(function(){ return 2 }());
+(function(){ return 3 }())
+//Number is not a function
+></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>si, los paréntesis son delicados</h3>
+						<p>y requieren punto y coma para evitar este tipo de errores.</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="centered">	
+						<h3>FIN</h3>
+						<p>David Avellaneda <br>
+						<a href="http://twitter.com/davsket">@davsket</a>
+						</p>
+						<p>
+						Slides en: <a href="http://github.com/davsket/ten-things">davsket/ten-things</a> <br><br>
+						<small>PD: originalmente incluía: <br>1) Funciones ternarias y <br>3) Math, parseInt y globales.</small></p>
 					</div>
 				</section>
 			</article>
@@ -665,7 +848,7 @@ console.log.apply(console, arr) // 23 45 17 9</code></pre>
 		<footer>
 			<div class="credits">
 				<a href="http://twitter.com/davsket"><img src="https://si0.twimg.com/profile_images/1362250398/174501_575306611_2864456_n_normal.jpg" alt="David Avellaneda"></a>
-				<p>Content by David Avellaneda, aka <a href="http://twitter.com/davsket">@davsket</a></p>
+				<p>David Avellaneda - <a href="http://twitter.com/davsket">@davsket</a></p>
 			</div>
 		</footer>
 

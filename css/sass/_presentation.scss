@@ -19,7 +19,7 @@ h1, h2, h3, h4{
 }
 
 h1{
-	font-size: 14.7vh;
+	font-size: 13vh; 
 	font-family: Roboto Slab;
 	font-weight: 400;
 }
@@ -112,7 +112,7 @@ ol{
 	}
 }
 
-.coverflow a{
+.bespoke-slide a{
 	color: rgba(255,255,255,0.9);
 	font-style: italic;
 	margin: 1em 0 0;
@@ -158,6 +158,10 @@ section {
 	display: table;
 }
 
+.bespoke-slide.subject{
+	background: rgb(16, 211, 133);
+}
+
 .centered{
 	padding: 4% 6%;
 	display: table-cell;
@@ -182,6 +186,12 @@ pre code[class*="language-"]{
     white-space: pre-wrap;
     display: block;
 }
+small{
+	font-size: 0.6em;
+	line-height: 1em;
+	display: block;
+	font-style: italic;
+}
 
 footer {
 	background: white;
@@ -190,8 +200,10 @@ footer {
 	left: 0;
 	right: 0;
 	height: 60px;
-	font-size: 0.8em;
-	display: none;
+
+	p{
+		font-size: 0.9em
+	}
 }
 
 footer img {
