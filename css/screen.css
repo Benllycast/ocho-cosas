@@ -109,32 +109,35 @@ pre code[class*="language-"] { white-space: pre-wrap; display: block; }
 small { font-size: 0.6em; line-height: 1em; display: block; font-style: italic; }
 
 /* line 196, sass/_presentation.scss */
-footer { background: white; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; }
-/* line 204, sass/_presentation.scss */
-footer p { font-size: 0.9em; }
+footer { background: white; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; display: none; }
+/* line 205, sass/_presentation.scss */
+footer p { font-size: 0.7em; }
 
-/* line 209, sass/_presentation.scss */
+/* line 210, sass/_presentation.scss */
 footer img { border: 0; border-radius: 4px; float: left; width: 30px; height: 30px; margin: 15px; }
 
-/* line 218, sass/_presentation.scss */
+/* line 219, sass/_presentation.scss */
 footer p { padding-top: 24px; }
 
-/* line 222, sass/_presentation.scss */
+/* line 223, sass/_presentation.scss */
 footer a { font-weight: bold; }
 
-/* line 227, sass/_presentation.scss */
+/* line 228, sass/_presentation.scss */
 body, section.bespoke-slide { -webkit-transition: -webkit-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -moz-transition: -moz-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -ms-transition: -ms-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; -o-transition: -o-transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; transition: transform 0.7s ease, opacity 0.7s ease, background-color 0.7s ease; }
 
-/* line 234, sass/_presentation.scss */
+/* line 235, sass/_presentation.scss */
 section.bespoke-active { opacity: 1; z-index: 1; }
 
-/* line 238, sass/_presentation.scss */
+/* line 239, sass/_presentation.scss */
 section.bespoke-inactive { pointer-events: none; }
 
-/* line 243, sass/_presentation.scss */
+/* line 244, sass/_presentation.scss */
 .intro .by { font-size: 0.8em; font-weight: 300; margin: 1.1em 0 0.8em; }
-/* line 249, sass/_presentation.scss */
+/* line 250, sass/_presentation.scss */
 .intro .author { font-size: 1.3em; font-weight: 300; }
 
-/* line 255, sass/_presentation.scss */
+/* line 256, sass/_presentation.scss */
+.img-me { -webkit-filter: saturate(0); filter: saturate(0); }
+
+/* line 260, sass/_presentation.scss */
 .line-highlight:before, .line-highlight[data-end]:after { top: 0; }

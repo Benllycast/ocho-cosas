@@ -200,9 +200,10 @@ footer {
 	left: 0;
 	right: 0;
 	height: 60px;
+	display: none;
 
 	p{
-		font-size: 0.9em
+		font-size: 0.7em
 	}
 }
 
@@ -252,6 +253,10 @@ section.bespoke-inactive {
 	}
 }
 
+.img-me{
+	-webkit-filter: saturate(0);
+	filter: saturate(0);
+}
 .line-highlight:before, .line-highlight[data-end]:after{
 	top: 0
 }
